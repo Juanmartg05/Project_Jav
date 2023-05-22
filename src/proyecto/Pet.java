@@ -12,7 +12,7 @@ public class Pet{
     
     Scanner s = new Scanner(System.in);
     // Declaracion de variables
-    private static ArrayList <Pet> Pet1 = new ArrayList<>();
+    private static ArrayList <Pet> Pet1 = new ArrayList<>(); //decir por que utilizamos static
     
     private int Code;
     private int Year;
@@ -77,8 +77,8 @@ public class Pet{
             {
                 encontrado = true;
                 System.out.println("Mascota encontrada:");
-                System.out.println("Código: " + pet.getCode());
-                System.out.println("Año de nacimiento: " + pet.getYear());
+                System.out.println("Codigo: " + pet.getCode());
+                System.out.println("Anio de nacimiento: " + pet.getYear());
                 System.out.println("Raza: " + pet.getRace());
                 System.out.println("Color: " + pet.getColor());
                 System.out.println("Estado: " + pet.getStatus());
@@ -88,21 +88,73 @@ public class Pet{
         if(!encontrado){
             System.out.println("No se encontro ninguna mascota con ese codigo");
         }
-        
-        
-    
-
-        
-        
     }
+    
     public void Quit_pet(){         //Permite quitar una mascota
         System.out.println("Digite la identificacion de la mascota que desea quitar");
+        int id=s.nextInt();
+        boolean encontrado = false;
+        
+        Pet petdelete = new Pet();
+        
+        for (Pet pet: Pet1){
+            
+            if(pet.getCode() == id){
+                encontrado=true;
+                petdelete=pet;
+            }
+        }
+        
+        if(encontrado){
+            Pet1.remove(petdelete);
+            System.out.println("La mascota con el codigo que digito ha sido borrada");
+        }
+        else{
+            System.out.println("No se encontro mascota con ese codigo");
+        }
         
     }
     
-    public void Change_pet(){       //Permite Cambiar una Mascota
+    public void Change_pet(){
         System.out.println("Digite la identificacion de la mascota a la que desea cambiar");
+        int id = s.nextInt();
+        boolean encontrado = false;
+
+        for (int i = 0; i < Pet1.size(); i++) { // se utilizo un for normal por que el for each no se puede utilizar para ir iterando
+            Pet pet = Pet1.get(i);
+            if (pet.getCode() == id) {
+                
+                encontrado = true;
+            
+                System.out.println("Ingrese el nuevo anioo de nacimiento de la mascota:");
+                int year = s.nextInt();
+                s.nextLine(); 
+
+                System.out.println("Ingrese la nueva raza de la mascota:");
+                String race = s.nextLine();
+
+                System.out.println("Ingrese el nuevo color de la mascota:");
+                String color = s.nextLine();
+
+                System.out.println("Ingrese el nuevo estado de la mascota:");
+                String status = s.nextLine();
+
+            // Modificar los atributos de la mascota
+                pet.setYear(year);
+                pet.setRace(race);
+                pet.setColor(color);
+                pet.setStatus(status);
+
+                System.out.println("Mascota modificada");
+                break;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("No se encontró ninguna mascota con ese código");
+        }
     }
+    
     
 
     
