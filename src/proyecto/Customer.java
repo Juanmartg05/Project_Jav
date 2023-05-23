@@ -98,7 +98,7 @@ public class Customer extends Veterinaria {
             System.out.println("El cliente con ese nombre ha sido borrado");
         }
         else{
-            System.out.println("No se encontro un clinete con ese nombre");
+            System.out.println("No se encontro un cliente con ese nombre");
         }
     }
     
@@ -148,6 +148,48 @@ public class Customer extends Veterinaria {
         }
     }
     
+    
+    public void See_mascot(){
+        
+        System.out.println("Ingrese el nombre de la mascota para obtener informacion:");
+        String petName = s.nextLine();
+
+        Pet petInstance = new Pet(); // se crea una instancia de pet para poder asignar la lista pet1, como se ve esa instancia se llama petInstance
+        ArrayList<Pet> pets = petInstance.getPet1();
+
+        // Buscar la mascota en la lista de mascotas utilizando for-each
+        for (Pet p : pets) {
+            if (p.getName().equalsIgnoreCase(petName)) {
+            petInstance = p;
+            break;
+            }
+        }
+
+        if (petInstance != null) 
+        {
+            System.out.println("Mascota encontrada:");
+            System.out.println("Nombre: " + petInstance.getName());
+            System.out.println("Codigo: " + petInstance.getCode());
+            System.out.println("Anio de nacimiento: " + petInstance.getYear());
+            System.out.println("Raza: " + petInstance.getRace());
+            System.out.println("Color: " + petInstance.getColor());
+            System.out.println("Estado: " + petInstance.getStatus());
+            
+            for (Customer customer : Customer1) 
+            {
+                if (customer.getPet().equalsIgnoreCase(petInstance.getName())) 
+                {
+                    System.out.println("Cliente asociado a la mascota:");
+                    System.out.println("Nombre del cliente: " + customer.getName());
+                    break;
+                }
+            }
+            
+        } 
+        else {
+            System.out.println("No se encontró ninguna mascota con ese nombre");
+        }
+    }
 
     
     
