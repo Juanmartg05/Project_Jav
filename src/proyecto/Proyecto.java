@@ -39,9 +39,10 @@ public class Proyecto {
                 }
             
             
-            }catch(Exception x){
+            }
+            catch(Exception x){
                 exit=true;
-                System.out.println("tiene que digitar numeros en vez de letras");
+                System.out.println("tiene que digitar numeros en vez de letras o viceversa");
                 s.nextLine();
             }
         }while(opc!=5);
