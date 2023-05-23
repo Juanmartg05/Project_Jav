@@ -8,6 +8,8 @@ public class Veterinary extends Veterinaria {
     private String email;
     private String identification;
     private Pet pet; // permite almacenar una instancia de la clase Pet y utilizarla en los métodos de la clase Veterinaria.
+    private Customer customer;
+    private Cita cita;
     
     //constructores
 
@@ -22,6 +24,14 @@ public class Veterinary extends Veterinaria {
     }
 
     public Veterinary() {
+    }
+
+    public Veterinary(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Veterinary(Cita cita) {
+        this.cita = cita;
     }
     
     
@@ -42,21 +52,13 @@ public class Veterinary extends Veterinaria {
         
         switch(opc){
             
-            case 1:
-                pet.Add_pet();
-            break;
+            case 1 -> pet.Add_pet();
             
-            case 2:
-                pet.Search_pet();
-            break;
+            case 2 -> pet.Search_pet();
             
-            case 3:
-                pet.Quit_pet();
-            break;
+            case 3 -> pet.Quit_pet();
             
-            case 4:
-                pet.Change_pet();
-            break;
+            case 4 -> pet.Change_pet();
         }
         
         
@@ -65,18 +67,49 @@ public class Veterinary extends Veterinaria {
     
     
     public void Customer(){
-        
-        
-        
-        
-        
-        
-        
+        customer = new Customer();
+        System.out.println("""
+                           Has ingresado al apartado de usuario, como veterinario puedes:
+                           1.Ingresar usuario
+                           2.Buscar usuario con su respectiva mascota
+                           3.Quitar usuario
+                           4.Cambiar las caracteristicas de tu usuario
+                           """);
+        int opc=s.nextInt();
+        switch(opc){
+            
+            case 1 -> customer.Add_custom();
+            
+            case 2 -> customer.Search_custom();
+            
+            case 3 -> customer.Quit_custom();
+            
+            case 4 -> customer.Change_custom();
+        }
     }
     
     public void Citas(){
         
-        
+        cita = new Cita();
+        System.out.println("""
+                           Has ingresado al apartado de citas, como veterinario puedes:
+                           1.Ingresar cita
+                           2.Buscar cita
+                           3.Quitar cita
+                           4. Agregar la observacion a la cita(solo si ya termino la cita).
+                           """);
+        int opc=s.nextInt();
+        switch(opc){
+            
+            case 1 -> cita.Add_cita();
+            
+            case 2 -> cita.Search_cita();
+            
+            case 3 -> cita.Quit_cita();
+            
+            case 4 -> cita.Observation();
+
+        }
         
         
         
@@ -136,11 +169,4 @@ public class Veterinary extends Veterinaria {
     public void setIdentification(String identification) {
         this.identification = identification;
     }
-    
-    
-
-    
-    
-    
-    
 }
