@@ -186,10 +186,11 @@ public class Pet{
     //getters y setters
     
     
-
     
     
-
+    public ArrayList <Pet> getPet1() {
+        return Pet1;
+    }
 
     /**
      * @param Pet1 the Pet1 to set
@@ -253,20 +254,14 @@ public class Pet{
     public void setColor(String Color) {
         this.Color = Color;
     }
-    
-    public static ArrayList<Pet> getPetList() {
-        return Pet1;
-    }
-    
-    
-    
+
     /**
      * @return the Status
      */
     public String getStatus() {
         return Status;
     }
-    
+
     /**
      * @param Status the Status to set
      */
