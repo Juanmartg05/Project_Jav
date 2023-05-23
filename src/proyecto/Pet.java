@@ -14,6 +14,7 @@ public class Pet{
     // Declaracion de variables
     private static ArrayList <Pet> Pet1 = new ArrayList<>(); //decir por que utilizamos static
     
+    private String Name;
     private int Code;
     private int Year;
     private String Race;
@@ -23,12 +24,13 @@ public class Pet{
     //constructores
 
     //(01,2005,bulldog,cafe,vivo)
-    public Pet(int Code, int Year, String Race, String Color, String Status) {
+    public Pet(int Code, int Year, String Race, String Color, String Status, String Name) {
         this.Code = Code;
         this.Year = Year;
         this.Race = Race;
         this.Color = Color;
         this.Status = Status;
+        this.Name = Name;
     }
 
     public Pet() {
@@ -40,6 +42,9 @@ public class Pet{
     public void Add_pet(){          //Permite añadir una mascota
         
         System.out.println("A continuacion ingresa los datos del cliente");
+        
+        System.out.println("Ingrese el nombre de su mascota");
+        String name = s.nextLine();
         
         System.out.println("Ingrese el codigo de la mascota:");
         int code = s.nextInt();
@@ -59,14 +64,14 @@ public class Pet{
         String status = s.nextLine();
         
         
-        Pet pet = new Pet(code,year,race,color,status);
+        Pet pet = new Pet(code,year,race,color,status,name);
         
         Pet1.add(pet);
     }
     
     
     public void Search_pet(){       //Permite buscar una Mascota
-        System.out.println("Digite la identificacion de la mascota que desea cambiar");
+        System.out.println("Digite la identificacion de la mascota que desea buscar");
         int id=s.nextInt();
         boolean encontrado= false;
         
@@ -180,9 +185,11 @@ public class Pet{
     
     //getters y setters
     
-    public ArrayList <Pet> getPet1() {
-        return Pet1;
-    }
+    
+
+    
+    
+
 
     /**
      * @param Pet1 the Pet1 to set
@@ -246,19 +253,39 @@ public class Pet{
     public void setColor(String Color) {
         this.Color = Color;
     }
-
+    
+    public static ArrayList<Pet> getPetList() {
+        return Pet1;
+    }
+    
+    
+    
     /**
      * @return the Status
      */
     public String getStatus() {
         return Status;
     }
-
+    
     /**
      * @param Status the Status to set
      */
     public void setStatus(String Status) {
         this.Status = Status;
+    }
+
+    /**
+     * @return the Name
+     */
+    public String getName() {
+        return Name;
+    }
+
+    /**
+     * @param Name the Name to set
+     */
+    public void setName(String Name) {
+        this.Name = Name;
     }
     
     
