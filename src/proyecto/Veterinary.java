@@ -47,7 +47,8 @@ public class Veterinary extends Veterinaria {
                            1.Ingresar Mascotas
                            2.Buscar Mascotas
                            3.Quitar Mascotas
-                           4.Cambiar las caracteristicas de tu mascota""");
+                           4.Cambiar las caracteristicas de tu mascota
+                           0.Para volver al menu principal""");
         int opc=s.nextInt();
         
         switch(opc){
@@ -71,9 +72,10 @@ public class Veterinary extends Veterinaria {
         System.out.println("""
                            Has ingresado al apartado de usuario, como veterinario puedes:
                            1.Ingresar usuario
-                           2.Buscar usuario con su respectiva mascota
+                           2.Buscar usuario
                            3.Quitar usuario
                            4.Cambiar las caracteristicas de tu usuario
+                           0.Para volver al menu principal
                            """);
         int opc=s.nextInt();
         switch(opc){
@@ -97,6 +99,7 @@ public class Veterinary extends Veterinaria {
                            2.Buscar cita
                            3.Quitar cita
                            4. Agregar la observacion a la cita(solo si ya termino la cita).
+                           0.Para volver al menu principal
                            """);
         int opc=s.nextInt();
         switch(opc){
